@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1 {
     public class GameManager {
-        private IPageController _pageController;
-        private IInputHandler _inputHandler;
-        private BaseLevel _level;
-        private bool isLevelDone;
+        protected readonly IPageController _pageController;
+        protected readonly IInputHandler _inputHandler;
+        protected BaseLevel _level;
+        protected bool isLevelDone;
 
         public GameManager(IPageController pageController, IInputHandler inputHandler) {
             _pageController = pageController;
             _inputHandler = inputHandler;
         }
-        public void Init(BaseLevel level) {
+        public virtual void Init(BaseLevel level) {
             isLevelDone = false;
             _level = level;
             _level.Init();
         }
-        public void Start() {
+        public virtual void Start() {
             while (true) {
                 Update();
                 if (isLevelDone)
@@ -30,7 +30,7 @@ namespace ConsoleApp1 {
             }
         }
 
-        public void Update() {
+        public virtual void Update() {
 
             _pageController.ShowMainPage(_level.Number.ToString().Length);
             var ansverNumber = _inputHandler.ReadInt();
@@ -58,7 +58,7 @@ namespace ConsoleApp1 {
             }
         }
 
-        private bool CheckAnswer(int answer) {
+        protected virtual bool CheckAnswer(int answer) {
             return answer == _level.Number;
         }
     }

@@ -15,7 +15,7 @@ namespace ConsoleApp1.Infrastructure {
             _max = max;
             _min = min;
         }
-        public int GetRandomNumber() {
+        public virtual int GetRandomNumber() {
             return _random.Next(_min, _max);
         }
     }

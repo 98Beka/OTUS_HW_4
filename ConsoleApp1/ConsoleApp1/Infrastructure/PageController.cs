@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ConsoleApp1.Infrastructure
 {
     public class PageController : IPageController {
-        private readonly IOutputHandler _outputHandler;
+        protected readonly IOutputHandler _outputHandler;
         public PageController(IOutputHandler outputHandler) {
             _outputHandler = outputHandler;
         }
