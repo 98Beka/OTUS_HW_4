@@ -15,7 +15,7 @@ class Program {
         var randomizer = new Randomizer(minNumberForRandomizer, maxNumberForRandomizer);
 
         while(true) {
-            var level = new FirstLevel(randomizer, retriesCount);
+            FirstLevel level = new NewFirstLevel(outputHandler, inputHandler, randomizer, retriesCount);
             game.Init(level);
             game.Start();
         }
