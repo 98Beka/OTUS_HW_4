@@ -5,9 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1.Interfaces {
-    public interface IInputHandler {
-        public string ReadString();
-        public int ReadInt();
+    public interface IInputHandler : IStringInputHandler, IIntInputHandler {
         public ConsoleKey ReadKey();
     }
 }
